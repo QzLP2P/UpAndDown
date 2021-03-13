@@ -6,14 +6,19 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { PageWrapper } from "./shared/styledComponents/container";
 import theme from "./shared/theme";
+import { createStore, StoreProvider } from "./store";
+
+const rootStore = createStore();
 
 const Root: React.FC<{}> = () => {
   return (
     <React.StrictMode>
       <ThemeProvider theme={theme as DefaultTheme}>
-        <PageWrapper>
-          <Home />
-        </PageWrapper>
+        <StoreProvider value={rootStore}>
+          <PageWrapper>
+            <Home />
+          </PageWrapper>
+        </StoreProvider>
       </ThemeProvider>
     </React.StrictMode>
   );
