@@ -3,15 +3,20 @@ import { useStore } from "../../../store";
 import { UseDataProps } from "./type";
 
 const useData = (): UseDataProps => {
-  const { gameStateStore, playerStore } = useStore();
+  const { gameStateStore: { setConfig, nextState, gameState }, playerStore } = useStore();
   const [player, setPlayer] = useState<number>(0);
   const [maxTurn, setMaxTurn] = useState<number>(0);
 
   const onNext = useCallback(() => {
-    debugger;
-    gameStateStore.setConfig(maxTurn, player);
-    gameStateStore.nextState();
-  }, [gameStateStore, playerStore, maxTurn, player]);
+    if(gameState === 'Config') {
+      setConfig(maxTurn, player);
+      playerStore.createPlayer(player);
+      nextState();
+    } else {
+      nextState();
+    }
+    
+  }, [setConfig, nextState,  playerStore, maxTurn, player]);
 
   return {
     player,

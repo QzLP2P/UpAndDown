@@ -6,4 +6,5 @@ import {
 
 export const Container = styled(StyledContainerColumn)`
   max-height: calc(100% - ${Footer_Height + Header_Height}px);
+  overflow-x: auto;
 `;

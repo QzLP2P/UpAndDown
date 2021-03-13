@@ -1,13 +1,22 @@
 import React from "react";
-import { observer } from "mobx-react"
+import { observer } from "mobx-react";
 
 import useData from "./hook";
 import { ConfigProps } from "./type";
-import { Container, StyledRow, StyledInput, StyledButton } from "./style";
+import {
+  Container,
+  StyledRow,
+  StyledInput,
+  StyledButton,
+  StyledTextInput,
+} from "./style";
 import { useStore } from "../../../store";
 
 const Config: React.FC<ConfigProps> = ({}) => {
-  const { gameStateStore: { gameState, playerCount } } = useStore();
+  const {
+    gameStateStore: { gameState },
+    playerStore: { players, setName },
+  } = useStore();
   const { player, maxTurn, setPlayer, setMaxTurn, onNext } = useData();
   return (
     <Container>
@@ -32,7 +41,14 @@ const Config: React.FC<ConfigProps> = ({}) => {
           </StyledRow>
         </>
       ) : (
-        playerCount.
+        players.map((p) => (
+          <StyledRow key={p.id}>
+            <StyledTextInput
+              placeholder={p.name}
+              onChange={(e) => setName(p, e.target.value)}
+            />
+          </StyledRow>
+        ))
       )}
 
       <StyledButton onClick={onNext}>Next</StyledButton>

@@ -5,4 +5,6 @@ export type RoundType = {
 
 export type PlayerType = {
   name: string;
+  id: string;
+  rounds: RoundType[];
 }
