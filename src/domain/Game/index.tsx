@@ -11,7 +11,6 @@ const Game: React.FC<{}> = () => {
   useData();
   return (
     <Container>
-      <span>Game</span>
       {(gameState === "Config" || gameState === "PlayerChoices") && <Config />}
       {gameState === "Round" && <Round />}
 

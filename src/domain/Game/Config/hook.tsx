@@ -16,7 +16,7 @@ const useData = (): UseDataProps => {
       nextState();
     }
     
-  }, [setConfig, nextState,  playerStore, maxTurn, player]);
+  }, [gameState, setConfig, nextState,  playerStore, maxTurn, player]);
 
   return {
     player,

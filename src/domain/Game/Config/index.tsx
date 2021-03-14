@@ -11,6 +11,7 @@ import {
   StyledTextInput,
 } from "./style";
 import { useStore } from "../../../store";
+import { useTranslation } from "react-i18next";
 
 const Config: React.FC<ConfigProps> = ({}) => {
   const {
@@ -18,25 +19,23 @@ const Config: React.FC<ConfigProps> = ({}) => {
     playerStore: { players, setName },
   } = useStore();
   const { player, maxTurn, setPlayer, setMaxTurn, onNext } = useData();
+  const { t } = useTranslation('config');
   return (
     <Container>
       {gameState === "Config" ? (
         <>
           <StyledRow>
             <StyledInput
-              label="Nombre de joueurs"
+              label={t('maxPlayer.placeholder')}
               value={player}
               onChange={(e) => setPlayer(+e.target.value)}
             />
           </StyledRow>
           <StyledRow>
             <StyledInput
-              label="Nombre maximun de tours"
+              label={t('maxCards.placeholder')}
               value={maxTurn}
-              onChange={(e) => {
-                console.log(+e.target.value);
-                setMaxTurn(+e.target.value);
-              }}
+              onChange={(e) => setMaxTurn(+e.target.value)}
             />
           </StyledRow>
         </>

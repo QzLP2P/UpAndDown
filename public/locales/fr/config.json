@@ -1,0 +1,8 @@
+{
+  "maxPlayer": {
+    "placeholder": "Nombre de joueur"
+  },
+  "maxCards": {
+    "placeholder": "Nombre maximun de cartes"
+  }
+}

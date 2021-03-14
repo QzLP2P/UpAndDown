@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { PrimaryButton } from "../../../shared/styledComponents/button";
 import {
+  StyledCenterContainerColumn,
   StyledContainerColumn,
   StyledContainerRow,
 } from "../../../shared/styledComponents/container";
@@ -9,19 +10,21 @@ import {
   PlayerNameTextField,
 } from "../../../shared/styledComponents/input";
 
-export const Container = styled(StyledContainerColumn)`
-`;
+export const Container = styled(StyledCenterContainerColumn)``;
 
 export const StyledRow = styled(StyledContainerRow)`
   max-height: 100px;
+  min-width: 100%;
+  margin-bottom: 10px;
+
+`;
+
+export const StyledColumn = styled(StyledContainerColumn)`
+  max-width: 30%;
 `;
 
 export const StyledInput = styled(NumberTextField)`
-  width: 100%;
-`;
-
-export const StyledTextInput = styled(PlayerNameTextField)`
-  width: 100%;
+  width: 50%;
 `;
 
 export const StyledButton = styled(PrimaryButton)``;

@@ -1,12 +1,14 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
+// import { BrowserRouter } from "react-router-dom";
 import { DefaultTheme, ThemeProvider } from "styled-components";
 import Home from "./domain/Home";
-import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { PageWrapper } from "./shared/styledComponents/container";
 import theme from "./shared/theme";
 import { createStore, StoreProvider } from "./store";
+import "./index.css";
+import "./shared/utils/i18n";
 
 const rootStore = createStore();
 
@@ -15,9 +17,13 @@ const Root: React.FC<{}> = () => {
     <React.StrictMode>
       <ThemeProvider theme={theme as DefaultTheme}>
         <StoreProvider value={rootStore}>
-          <PageWrapper>
-            <Home />
-          </PageWrapper>
+          {/* <BrowserRouter> */}
+          <Suspense fallback={<div>ABC</div>}>
+            <PageWrapper>
+              <Home />
+            </PageWrapper>
+          </Suspense>
+          {/* </BrowserRouter> */}
         </StoreProvider>
       </ThemeProvider>
     </React.StrictMode>

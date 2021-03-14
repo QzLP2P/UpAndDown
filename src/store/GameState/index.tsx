@@ -5,17 +5,22 @@ export class GameStateStore {
   @observable
   gameState: GameStateType = "Config";
   @observable
-  maxRound: number = 0;
+  maxCards: number = 0;
   @observable
   playerCount: number = 0;
+  @observable
+  maxRounds: number = 0;
+  @observable
+  currentRound: number = 0;
 
   constructor() {
     makeAutoObservable(this)
   }
   
   @action
-  public setConfig = (maxRound: number, playerCount: number) => {
-    this.maxRound = maxRound;
+  public setConfig = (maxCards: number, playerCount: number) => {
+    this.maxCards = maxCards;
+    this.maxRounds = (maxCards * 2) + 1;
     this.playerCount = playerCount;
   };
 
@@ -27,13 +32,16 @@ export class GameStateStore {
         break;
       case "PlayerChoices":
         this.gameState = "Round";
+        this.currentRound = 1;
         break;
-
       case "Round":
-        this.gameState = "Result";
+        if(this.currentRound === this.maxRounds)
+          this.gameState = "Result";
+        else 
+          this.currentRound++;
         break;
     }
-    console.log('game state is now: ', this.gameState);
+    console.log(`game state is now: ${this.gameState} - turn : ${this.currentRound}`);
   };
 
  

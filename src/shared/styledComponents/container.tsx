@@ -19,6 +19,9 @@ export const StyledContainerRow = styled(StyledContainerBasic)`
 
 export const StyledContainerColumn = styled(StyledContainerBasic)`
   flex-direction: column;
+`;
+
+export const StyledCenterContainerColumn = styled(StyledContainerColumn)`
   align-items: center;
 `;
 

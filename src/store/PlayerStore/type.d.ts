@@ -1,10 +1,13 @@
 export type RoundType = {
-  beat: number;
-  done: number;
+  bet: number;
+  roundWon: number;
+  score: number;
+  success: boolean;
 }
 
 export type PlayerType = {
   name: string;
   id: string;
   rounds: RoundType[];
+  score: number;
 }
