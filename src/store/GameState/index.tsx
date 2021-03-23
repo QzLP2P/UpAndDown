@@ -20,7 +20,7 @@ export class GameStateStore {
   @action
   public setConfig = (maxCards: number, playerCount: number) => {
     this.maxCards = maxCards;
-    this.maxRounds = (maxCards * 2) + 1;
+    this.maxRounds = (maxCards * 2) - 1;
     this.playerCount = playerCount;
   };
 
