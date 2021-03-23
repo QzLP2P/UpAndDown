@@ -5,7 +5,7 @@ import { RoundStateType, UseDataProps } from "./type";
 const useData = (): UseDataProps => {
   const {
     gameStateStore: { setConfig, nextState, gameState, currentRound },
-    playerStore: { computeRound, checkBets },
+    playerStore: { computeRound },
   } = useStore();
 
   const [roundState, setRoundState] = useState<RoundStateType>("bets");
@@ -13,18 +13,17 @@ const useData = (): UseDataProps => {
   const onNext = useCallback(() => {
     switch (roundState) {
       case "bets":
-        checkBets(currentRound);
         setRoundState("count");
         break;
       case "count":
-        computeRound();
+        computeRound(currentRound - 1);
         nextState();
         setRoundState("bets");
         break;
       default:
         throw new Error("Not handled");
     }
-  }, [nextState, roundState, setRoundState, computeRound, currentRound, checkBets]);
+  }, [nextState, roundState, setRoundState, computeRound, currentRound]);
 
   return {
     onNext,

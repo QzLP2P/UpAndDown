@@ -14,7 +14,7 @@ import {
 const Round: React.FC<{}> = () => {
   const {
     gameStateStore: { gameState, currentRound },
-    playerStore: { players, setBet, setRoundResult, getLastRound: lastRound, getCurrentRound },
+    playerStore: { players, setBet, setRoundResult, getCurrentRound },
   } = useStore();
   const { onNext, roundState } = useData();
   const { t } = useTranslation("round");

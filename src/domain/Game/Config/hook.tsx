@@ -10,7 +10,7 @@ const useData = (): UseDataProps => {
   const onNext = useCallback(() => {
     if(gameState === 'Config') {
       setConfig(maxTurn, player);
-      playerStore.createPlayer(player);
+      playerStore.createPlayer(player, maxTurn);
       nextState();
     } else {
       nextState();

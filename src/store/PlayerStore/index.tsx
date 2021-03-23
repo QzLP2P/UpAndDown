@@ -11,14 +11,21 @@ export class PlayerStore {
     makeAutoObservable(this);
   }
 
+  /**
+   * Create player and all rounds for the party
+   * @param playerCount number of player
+   * @param maxCards maxCard in a row
+   */
   @action
-  public createPlayer = (playerCount: number) => {
+  public createPlayer = (playerCount: number, maxCards: number) => {
     for (let i = 0; i < playerCount; i++) {
       const p: PlayerType = {
         name: `Nom ${i + 1}`,
         id: uuidv4(),
         score: 0,
-        rounds: [],
+        rounds: Array.from(Array(2 * maxCards - 1).keys()).map<RoundType>(
+          (x) => ({ bet: 0, roundWon: 0, score: 0, success: false })
+        ),
       };
       this.players.push(p);
     }
@@ -31,19 +38,7 @@ export class PlayerStore {
 
   @action
   public setBet = (player: PlayerType, round: number, bet: number): void => {
-    const targetPlayer = this.players.find((p) => p.id === player.id);
-    if (!targetPlayer) return;
-
-    if (targetPlayer.rounds.length > round) {
-      targetPlayer.rounds[round].bet = bet;
-    } else {
-      targetPlayer.rounds.push({
-        bet,
-        roundWon: 0,
-        score: 0,
-        success: false,
-      });
-    }
+    this.getCurrentRound(player, round).bet = bet;
   };
 
   @action
@@ -52,57 +47,30 @@ export class PlayerStore {
     round: number,
     roundWon: number
   ): void => {
-    const targetPlayer = this.players.find((p) => p.id === player.id);
-
-    if (!targetPlayer) return;
-    const lastRound = this.getCurrentRound(targetPlayer, round);
-    if (lastRound) {
-      lastRound.roundWon = roundWon;
-    }
+    this.getCurrentRound(player, round).roundWon = roundWon;
   };
 
   @action
   public getCurrentRound = (
     player: PlayerType,
     round: number
-  ): RoundType | null => {
-    if (player.rounds.length > 0 && player.rounds.length >= round) {
-      const lastRound = player.rounds[round];
-      return lastRound;
-    }
-    return null;
+  ): RoundType => {
+    return player.rounds[round];
   };
 
-  @action
-  public getLastRound = (player: PlayerType): RoundType | null => {
-    if (player.rounds.length > 0) {
-      const lastRound = player.rounds[player.rounds.length - 1];
-      return lastRound;
-    }
-    return null;
-  };
-
-  @action checkBets = (round: number): void => {
+  @action computeRound = (round: number): void => {
     this.players.forEach((p) => {
-      if (p.rounds.length < round) {
-        this.setBet(p, round, 0);
-      }
-    });
-  };
-
-  @action computeRound = (): void => {
-    this.players.forEach((p) => {
-      const currentRound = this.getLastRound(p);
+      const currentRound = this.getCurrentRound(p, round);
 
       if (!currentRound) throw new Error("pas de round..");
 
-      const success = currentRound.roundWon === currentRound.bet;
-      const score =
-        success && currentRound.roundWon === 0
+      const isGoodRound = currentRound.roundWon === currentRound.bet;
+      const potentialScore =
+        isGoodRound && currentRound.roundWon === 0
           ? 10
           : 10 * currentRound.roundWon + currentRound.roundWon;
-      currentRound.score = success ? score : currentRound.roundWon;
-      currentRound.success = success;
+      currentRound.score = isGoodRound ? potentialScore : currentRound.roundWon;
+      currentRound.success = isGoodRound;
       p.score += currentRound.score || 0;
     });
   };
