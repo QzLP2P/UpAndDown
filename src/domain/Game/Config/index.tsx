@@ -27,7 +27,7 @@ const Config: React.FC<ConfigProps> = ({}) => {
         <Init player={player} maxTurn={maxTurn} setPlayer={setPlayer} setMaxTurn={setMaxTurn} />
       ) : (
         players.map((p) => (
-          <Player p={p}/>
+          <Player key={p.id} p={p}/>
         ))
       )}
 

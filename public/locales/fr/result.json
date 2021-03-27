@@ -1,0 +1,16 @@
+{
+  "title": "Voici le résultat de la partie",
+  "player": {
+    "title": "{{name}}: {{score}}",
+    "max": "Score maximun: {{score}}",
+    "average": "Tours réussi: {{success}} / {{total}}",
+    "sentences": {
+      "20": "Oula, tu as vraiment mal joué",
+      "40": "Dommage, tu fera mieux la prochaine fois",
+      "50": "Peux mieux faire",
+      "60": "Tu t'améliore continu comme ça",
+      "80": "Presque un sans faute bravo !",
+      "100": "C'est parfait, un sans faute !"
+    }
+  }
+}

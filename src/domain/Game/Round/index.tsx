@@ -13,12 +13,12 @@ import {
 
 const Round: React.FC<{}> = () => {
   const {
-    gameStateStore: { gameState, currentRound },
+    gameStateStore: {  currentRound },
     playerStore: { players, setBet, setRoundResult, getCurrentRound },
   } = useStore();
   const { onNext, roundState } = useData();
   const { t } = useTranslation("round");
-  const currentRoundArray = currentRound -1;
+  const currentRoundArray = currentRound - 1;
   return (
     <Container>
       <span>{t(`title`, { roundCount: currentRound })}</span>

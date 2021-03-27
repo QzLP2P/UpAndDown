@@ -74,4 +74,41 @@ export class PlayerStore {
       p.score += currentRound.score || 0;
     });
   };
+
+
+  @action getOrderedPlayers = (): PlayerType[] => {
+    return this.players.slice().sort((p1, p2 ) => p2.score - p1.score);
+  }
+
+  @action maxPlayerScore = (p: PlayerType): number => {
+    return Math.max(...p.rounds.map(r => r.score));
+  }
+
+  @action maxSuccessedRound = (p: PlayerType): number => {
+    return p.rounds.filter(r => r.success).length || 0;
+  }
+
+  @action getRatio = (p: PlayerType): number => {
+    const done = this.maxSuccessedRound(p);
+    const max = p.rounds.length;
+    const percent = (done/max)*100;
+
+    let result = 0;
+
+    if(percent === 100)
+      result = 100;
+    else if(percent >= 80 && percent < 100 )
+      result = 80;
+    else if(percent >= 60 && percent < 80 )
+      result = 60;
+    else if(percent >= 50 && percent < 60 )
+      result = 50;
+    else if(percent >= 40 && percent < 50 )
+      result = 40;
+    else
+      result = 20;
+
+    return result;
+
+  }
 }
