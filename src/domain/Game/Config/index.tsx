@@ -1,52 +1,33 @@
 import React from "react";
 import { observer } from "mobx-react";
+import { useTranslation } from "react-i18next";
+
+
+import { useStore } from "../../../store";
+import Init from "./Init";
+import Player from "./Player";
 
 import useData from "./hook";
 import { ConfigProps } from "./type";
 import {
   Container,
-  StyledRow,
-  StyledInput,
   StyledButton,
-  StyledTextInput,
 } from "./style";
-import { useStore } from "../../../store";
-import { useTranslation } from "react-i18next";
 
 const Config: React.FC<ConfigProps> = ({}) => {
   const {
     gameStateStore: { gameState },
-    playerStore: { players, setName },
+    playerStore: { players },
   } = useStore();
   const { player, maxTurn, setPlayer, setMaxTurn, onNext } = useData();
-  const { t } = useTranslation('config');
+  const { t } = useTranslation("config");
   return (
     <Container>
       {gameState === "Config" ? (
-        <>
-          <StyledRow>
-            <StyledInput
-              label={t('maxPlayer.placeholder')}
-              value={player}
-              onChange={(e) => setPlayer(+e.target.value)}
-            />
-          </StyledRow>
-          <StyledRow>
-            <StyledInput
-              label={t('maxCards.placeholder')}
-              value={maxTurn}
-              onChange={(e) => setMaxTurn(+e.target.value)}
-            />
-          </StyledRow>
-        </>
+        <Init player={player} maxTurn={maxTurn} setPlayer={setPlayer} setMaxTurn={setMaxTurn} />
       ) : (
         players.map((p) => (
-          <StyledRow key={p.id}>
-            <StyledTextInput
-              placeholder={p.name}
-              onChange={(e) => setName(p, e.target.value)}
-            />
-          </StyledRow>
+          <Player p={p}/>
         ))
       )}
 
