@@ -5,11 +5,12 @@ import {
   StyledContainerColumn,
   StyledContainerRow,
 } from "../../../shared/styledComponents/container";
+import { H6 } from "../../../shared/styledComponents/text";
 
 export const Container = styled(StyledCenterContainerColumn)``;
 
 export const StyledRow = styled(StyledContainerRow)`
-  max-height: 100px;
+  max-height: 128px;
   margin-bottom: 10px;
   border-top: 1px solid gray;
   border-top: 1px solid gray;
@@ -22,8 +23,8 @@ export const StyledScoreContainer = styled(StyledContainerBasic)`
 
 export const PlayerContainer = styled(StyledContainerColumn)``;
 
-export const StyledScoreSpan = styled.span`
+export const StyledScoreSpan = styled(H6)`
   margin-left: 50%;
 `;
-export const StyledSpan = styled.span``;
+export const StyledSpan = styled(H6)``;
 

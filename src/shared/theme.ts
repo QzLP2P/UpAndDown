@@ -29,25 +29,6 @@ const theme = {
       alert: "#F0E7E5",
       white: "#FFF",
     },
-    text: {
-      black: {
-        main: mainBlackColor,
-        faded: "rgba(22, 28, 34, 0.7)",
-        variant: "rgba(22, 28, 34, 0.4)",
-        overlay: "rgba(0, 0, 0, 0.4)",
-      },
-      white: {
-        main: pureWhiteColor,
-        variant: "rgba(255, 255, 255, 0.5)",
-      },
-      error: "#D04747",
-      disabled: "#818587",
-    },
-    alert: {
-      error: "#D04747",
-      warn: "#FFBB37",
-      success: "#6EBA32",
-    },
   },
   textSizes: {
     regular: "14px",

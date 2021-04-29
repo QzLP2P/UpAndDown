@@ -12,6 +12,7 @@ import {
   StyledScoreSpan,
   StyledSpan,
 } from "./style";
+import { H5 } from "../../../shared/styledComponents/text";
 
 const Result: React.FC<ResultProps> = () => {
   const {
@@ -21,7 +22,8 @@ const Result: React.FC<ResultProps> = () => {
 
   return (
     <Container>
-      <span>{t(`title`)}</span>
+        <H5>{t(`title`)}</H5>
+
       {getOrderedPlayers().map((p, index) => (
         <StyledRow key={p.id}>
           <StyledScoreContainer>
@@ -29,9 +31,8 @@ const Result: React.FC<ResultProps> = () => {
           </StyledScoreContainer>
           <PlayerContainer>
             <StyledSpan>
-              {t("player.title", { name: p.name, score: p.score })}
+              {t("player.title", { name: p.name, score: p.score, bestScore: maxPlayerScore(p) })}
             </StyledSpan>
-            <StyledSpan>{t("player.max", { score: maxPlayerScore(p) })}</StyledSpan>
             <StyledSpan>
               {t("player.average", { success: maxSuccessedRound(p), total: p.rounds.length })}
             </StyledSpan>

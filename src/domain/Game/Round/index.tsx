@@ -2,6 +2,7 @@ import { observer } from "mobx-react";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { StyledColumnMargin } from "../../../shared/styledComponents/container";
+import { Split } from "../../../shared/styledComponents/split";
 import { H5, H6 } from "../../../shared/styledComponents/text";
 import { useStore } from "../../../store";
 import useData from "./hook";
@@ -27,6 +28,8 @@ const Round: React.FC<{}> = () => {
         <H5>{t(`title`, { roundCount: currentRound })}</H5>
         <H6> {t(`state.${roundState}.title`)} </H6>
 
+        <Split />
+
         {players.map((p) => (
           <StyledRow key={p.id}>
             <StyledColumn>
@@ -46,8 +49,14 @@ const Round: React.FC<{}> = () => {
                   : setRoundResult(p, currentRoundArray, +e.target.value);
               }}
             />
+
+            {/* {roundState !== "bets" && <span>{getCurrentRound(p, currentRound)?.success}</span>} */}
+
           </StyledRow>
         ))}
+
+        <Split />
+
         <StyledButton onClick={onNext}>
           {t(`state.${roundState}.next`)}
         </StyledButton>
