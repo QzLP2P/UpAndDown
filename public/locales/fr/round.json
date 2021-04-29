@@ -1,0 +1,20 @@
+{
+  "title": {
+    "bets": "Tours n°{{roundCount}} - {{currentCard}} carte(s) à distribuer",
+    "count": "Tours n°{{roundCount}}"
+  },
+  "currentScore": "Score: {{score}}",
+  "state": {
+    "bets": {
+      "title": "C'est le moment de parier, faites vos jeux",
+      "input": "Saisir le paris",
+      "next": "Saisir les scores"
+
+    },
+    "count": {
+      "title": "C'est le moment de vérifier les résultats",
+      "input": "Saisir le nombre de tours gagné",
+      "next": "Commencer le nouveau tours"
+    }
+  }
+}

@@ -1,15 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { Suspense } from "react";
+import ReactDOM from "react-dom";
+// import { BrowserRouter } from "react-router-dom";
+import { DefaultTheme, ThemeProvider } from "styled-components";
+import { MuiThemeProvider, StylesProvider } from "@material-ui/core";
+import Home from "./domain/Home";
+import reportWebVitals from "./reportWebVitals";
+import { PageWrapper } from "./shared/styledComponents/container";
+import theme from "./shared/theme";
+import customMuiTheme from "./shared/muiTheme";
+import { createStore, StoreProvider } from "./store";
+import "./index.css";
+import "./shared/utils/i18n";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const rootStore = createStore();
+
+const Root: React.FC<{}> = () => {
+  return (
+    <React.StrictMode>
+      {/* <BrowserRouter> */}
+        <StylesProvider injectFirst>
+          <MuiThemeProvider theme={customMuiTheme}>
+            <ThemeProvider theme={theme as DefaultTheme}>
+              <StoreProvider value={rootStore}>
+                <Suspense fallback={<div>ABC</div>}>
+                  <PageWrapper>
+                    <Home />
+                  </PageWrapper>
+                </Suspense>
+              </StoreProvider>
+            </ThemeProvider>
+          </MuiThemeProvider>
+        </StylesProvider>
+      {/* </BrowserRouter> */}
+    </React.StrictMode>
+  );
+};
+
+ReactDOM.render(<Root />, document.getElementById("root"));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

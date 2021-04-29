@@ -1,0 +1,17 @@
+{
+  "maxPlayer": {
+    "placeholder": "Nombre de joueur"
+  },
+  "maxCards": {
+    "placeholder": "Nombre maximun de cartes"
+  },
+  "nextButton": {
+    "Config": "Saisir le nom des joueurs",
+    "PlayerChoices": "Commencer la partie"
+  },
+  "mainTitle": "Configuration de la partie",
+  "title": {
+    "Config": "Merci de saisir le nombre de joueurs ainsi que le nombre maximun de carte dans un tours",
+    "PlayerChoices": "Pour un suivi personnalisé, il est nécessaire de saisir le nom de chaque joueur"
+  }
+}

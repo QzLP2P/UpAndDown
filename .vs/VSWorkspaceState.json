@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\store",
+    "\\src\\store\\GameState",
+    "\\src\\store\\PlayerStore"
+  ],
+  "SelectedNode": "\\src\\store\\PlayerStore\\index.tsx",
+  "PreviewInSolutionExplorer": false
+}
