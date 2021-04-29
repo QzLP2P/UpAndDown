@@ -3,11 +3,11 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 import { useStore } from "../../../store";
-import { H5 } from "../../../shared/styledComponents/text";
 
 import { ResultProps } from "./type";
 import {
   Container,
+  Title,
   PlayerContainer,
   StyledRow,
   StyledScoreContainer,
@@ -29,17 +29,16 @@ const Result: React.FC<ResultProps> = () => {
 
   return (
     <Container data-cy="gameResultContainer">
-      <H5>{t(`title`)}</H5>
+      <Title>{t(`title`)}</Title>
       <StyledResultContainer data-cy="gameResultMarginContainer">
         {getOrderedPlayers().map((p, index) => (
           <StyledRow key={p.id} data-cy="gameResultRowPlayerContainer">
             <StyledScoreContainer>
-              <StyledScoreSpan>{index + 1}</StyledScoreSpan>
+              <StyledScoreSpan>{`${index + 1}. ${p.name}`}</StyledScoreSpan>
             </StyledScoreContainer>
             <PlayerContainer>
               <StyledSpan>
                 {t("player.title", {
-                  name: p.name,
                   score: p.score,
                   bestScore: maxPlayerScore(p),
                 })}
