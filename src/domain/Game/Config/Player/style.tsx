@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { PlayerNameTextField } from "../../../../shared/styledComponents/input";
+import { RequiredTextField } from "../../../../shared/styledComponents/input";
 
-export const StyledTextInput = styled(PlayerNameTextField)`
+export const StyledTextInput = styled(RequiredTextField)`
   width: 100%;
 `;

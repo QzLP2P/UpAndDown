@@ -7,7 +7,7 @@ import {
 } from "../../../shared/styledComponents/container";
 import {
   NumberTextField,
-  PlayerNameTextField,
+  RequiredTextField,
 } from "../../../shared/styledComponents/input";
 
 export const Container = styled(StyledCenterContainerColumn)``;

@@ -6,7 +6,7 @@ import { Container } from "./style";
 
 const Home: React.FC<{}> = () => {
   return (
-    <Container>
+    <Container data-cy='homeContainer'>
       <Header />
       <Game />
       <Footer />

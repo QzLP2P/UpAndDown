@@ -7,6 +7,5 @@ export const Container = styled(StyledContainerBasic)`
   bottom: 0px;
   height: ${() => Footer_Height}px;
   max-height: ${() => Footer_Height}px;
-  background-color: gray;
 
 `;

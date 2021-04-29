@@ -2,10 +2,12 @@ import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 // import { BrowserRouter } from "react-router-dom";
 import { DefaultTheme, ThemeProvider } from "styled-components";
+import { MuiThemeProvider, StylesProvider } from "@material-ui/core";
 import Home from "./domain/Home";
 import reportWebVitals from "./reportWebVitals";
 import { PageWrapper } from "./shared/styledComponents/container";
 import theme from "./shared/theme";
+import customMuiTheme from "./shared/muiTheme";
 import { createStore, StoreProvider } from "./store";
 import "./index.css";
 import "./shared/utils/i18n";
@@ -15,17 +17,21 @@ const rootStore = createStore();
 const Root: React.FC<{}> = () => {
   return (
     <React.StrictMode>
-      <ThemeProvider theme={theme as DefaultTheme}>
-        <StoreProvider value={rootStore}>
-          {/* <BrowserRouter> */}
-          <Suspense fallback={<div>ABC</div>}>
-            <PageWrapper>
-              <Home />
-            </PageWrapper>
-          </Suspense>
-          {/* </BrowserRouter> */}
-        </StoreProvider>
-      </ThemeProvider>
+      {/* <BrowserRouter> */}
+        <StylesProvider injectFirst>
+          <MuiThemeProvider theme={customMuiTheme}>
+            <ThemeProvider theme={theme as DefaultTheme}>
+              <StoreProvider value={rootStore}>
+                <Suspense fallback={<div>ABC</div>}>
+                  <PageWrapper>
+                    <Home />
+                  </PageWrapper>
+                </Suspense>
+              </StoreProvider>
+            </ThemeProvider>
+          </MuiThemeProvider>
+        </StylesProvider>
+      {/* </BrowserRouter> */}
     </React.StrictMode>
   );
 };

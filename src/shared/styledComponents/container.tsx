@@ -25,6 +25,12 @@ export const StyledCenterContainerColumn = styled(StyledContainerColumn)`
   align-items: center;
 `;
 
+export const StyledColumnMargin = styled(StyledCenterContainerColumn)`
+  margin-left: 30px;
+  margin-right: 30px;
+  width: calc(100% - 60px);
+`;
+
 export const PageWrapper = styled(StyledContainerBasic)`
   width: 320px;
   margin: 0;

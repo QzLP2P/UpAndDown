@@ -4,5 +4,9 @@
   },
   "maxCards": {
     "placeholder": "Nombre maximun de cartes"
+  },
+  "nextButton": {
+    "Config": "Saisir le nom des joueurs",
+    "PlayerChoices": "Commencer la partie"
   }
 }

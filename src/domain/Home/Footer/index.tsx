@@ -3,7 +3,7 @@ import { Container } from "./style";
 
 const Footer: React.FC<{}> = () => {
   return (
-    <Container>
+    <Container data-cy='footerContainer'>
       <span>Footer</span>
     </Container>
   );
