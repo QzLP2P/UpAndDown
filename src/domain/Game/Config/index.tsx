@@ -13,7 +13,7 @@ import { StyledColumnMargin } from "../../../shared/styledComponents/container";
 import { Split } from "../../../shared/styledComponents/split";
 import { H5, H6 } from "../../../shared/styledComponents/text";
 
-const Config: React.FC<ConfigProps> = ({}) => {
+const Config: React.FC<ConfigProps> = () => {
   const {
     gameStateStore: { gameState },
     playerStore: { players },

@@ -5,18 +5,13 @@ import {
   StyledContainerColumn,
   StyledContainerRow,
 } from "../../../shared/styledComponents/container";
-import {
-  NumberTextField,
-  RequiredTextField,
-} from "../../../shared/styledComponents/input";
+import { NumberTextField } from "../../../shared/styledComponents/input";
 
 export const Container = styled(StyledCenterContainerColumn)``;
 
 export const StyledRow = styled(StyledContainerRow)`
   max-height: 100px;
   min-width: 100%;
-  margin-bottom: 10px;
-
 `;
 
 export const StyledColumn = styled(StyledContainerColumn)`
@@ -28,3 +23,8 @@ export const StyledInput = styled(NumberTextField)`
 `;
 
 export const StyledButton = styled(PrimaryButton)``;
+
+export const ImgStyled = styled.img`
+  height: 32px;
+  max-height: 32px;
+`;

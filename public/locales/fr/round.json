@@ -1,5 +1,8 @@
 {
-  "title": "Tours n°{{roundCount}}",
+  "title": {
+    "bets": "Tours n°{{roundCount}} - {{currentCard}} carte(s) à distribuer",
+    "count": "Tours n°{{roundCount}}"
+  },
   "currentScore": "Score: {{score}}",
   "state": {
     "bets": {

@@ -25,10 +25,23 @@ export const StyledCenterContainerColumn = styled(StyledContainerColumn)`
   align-items: center;
 `;
 
-export const StyledColumnMargin = styled(StyledCenterContainerColumn)`
+const marginCss = css`
   margin-left: 30px;
   margin-right: 30px;
   width: calc(100% - 60px);
+`;
+
+export const StyledColumnMargin = styled(StyledCenterContainerColumn)`
+  ${marginCss}
+`;
+
+export const StyledRowMargin = styled(StyledContainerRow)`
+  justify-content: center;
+  ${marginCss}
+`;
+
+export const StyledRowSpaceBetweenMargin = styled(StyledRowMargin)`
+  justify-content: space-between;
 `;
 
 export const PageWrapper = styled(StyledContainerBasic)`

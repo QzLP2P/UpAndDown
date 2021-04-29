@@ -1,4 +1,3 @@
-import { BaseProps } from "./../type";
 export type ConfigProps = {};
 
 export type UseDataProps = {

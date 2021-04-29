@@ -1,4 +1,3 @@
-import { BaseProps } from "./../type";
 export type RoundProps = {};
 
 export type RoundStateType = "bets" | "count";

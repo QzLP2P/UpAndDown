@@ -9,7 +9,6 @@ export const Container = styled(StyledCenterContainerColumn)``;
 
 export const StyledRow = styled(StyledContainerRow)`
   max-height: 100px;
-  margin-bottom: 10px;
 `;
 
 export const StyledButton = styled(PrimaryButton)``;

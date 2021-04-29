@@ -4,7 +4,7 @@ import { RoundStateType, UseDataProps } from "./type";
 
 const useData = (): UseDataProps => {
   const {
-    gameStateStore: { setConfig, nextState, gameState, currentRound },
+    gameStateStore: { nextState, currentRound },
     playerStore: { computeRound },
   } = useStore();
 

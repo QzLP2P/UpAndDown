@@ -12,11 +12,12 @@ import {
   StyledRow,
   StyledInput,
   StyledColumn,
+  ImgStyled,
 } from "./style";
 
 const Round: React.FC<{}> = () => {
   const {
-    gameStateStore: { currentRound },
+    gameStateStore: { currentRound, currentCard, playerDealer },
     playerStore: { players, setBet, setRoundResult, getCurrentRound },
   } = useStore();
   const { onNext, roundState } = useData();
@@ -25,18 +26,24 @@ const Round: React.FC<{}> = () => {
   return (
     <Container>
       <StyledColumnMargin data-cy="roundContainer">
-        <H5>{t(`title`, { roundCount: currentRound })}</H5>
+        <H5>
+          {t(`title.${roundState}`, { roundCount: currentRound, currentCard })}
+        </H5>
         <H6> {t(`state.${roundState}.title`)} </H6>
 
         <Split />
 
         {players.map((p) => (
-          <StyledRow key={p.id}>
+          <StyledRow key={p.id} data-cy={`playerMapContainer-${p.id}`}>
             <StyledColumn>
-              <H5>{p.name}</H5>
+              <StyledRow>
+                <H5>{p.name}</H5>
+                {p.name === players[playerDealer - 1].name && <ImgStyled src='img/deck-dealer.png' />}
+              </StyledRow>
               <H6>{t(`currentScore`, { score: p.score })}</H6>
             </StyledColumn>
             <StyledInput
+              inputProps={{ min: 0, max: currentCard }}
               label={t(`state.${roundState}.input`)}
               value={
                 roundState === "bets"
@@ -51,7 +58,6 @@ const Round: React.FC<{}> = () => {
             />
 
             {/* {roundState !== "bets" && <span>{getCurrentRound(p, currentRound)?.success}</span>} */}
-
           </StyledRow>
         ))}
 

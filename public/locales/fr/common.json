@@ -1,3 +1,11 @@
 {
-  "title": "L'Ascenseur"
+  "title": "L'Ascenseur",
+  "footer":  {
+    "rule": "Règles",
+    "about": "A propos",
+    "help": "Soutenir"
+  },
+  "ruleLink": "https://adrienfelsmann.fr/janela/jeu-cartes-up-and-down-the-river/",
+  "linkedIn": "https://www.linkedin.com/in/thomas-gicquel-2b95aba9/",
+  "buyMeACoffee": "https://www.buymeacoffee.com/thomasgicquel"
 }

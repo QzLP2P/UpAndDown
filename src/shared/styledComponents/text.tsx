@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Typography } from "@material-ui/core";
 
 export const H1 = styled(Typography).attrs({

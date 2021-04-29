@@ -1,6 +1,5 @@
 import React from "react";
 import { observer } from "mobx-react";
-import { useTranslation } from "react-i18next";
 
 import { useStore } from "../../../../store";
 import { PlayerProps } from "./type";
@@ -11,7 +10,6 @@ const Player: React.FC<PlayerProps> = ({ p }) => {
   const {
     playerStore: { setName },
   } = useStore();
-  const { t } = useTranslation("config");
   return (
     <StyledRow key={p.id}>
       <StyledTextInput

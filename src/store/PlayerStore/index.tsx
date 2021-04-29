@@ -1,4 +1,4 @@
-import { action, makeAutoObservable, observable, toJS } from "mobx";
+import { action, makeAutoObservable, observable } from "mobx";
 import { uuidv4 } from "../../shared/helpers";
 
 import { PlayerType, RoundType } from "./type";

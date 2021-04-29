@@ -12,6 +12,10 @@ export class GameStateStore {
   maxRounds: number = 0;
   @observable
   currentRound: number = 0;
+  @observable
+  currentCard: number = 0;
+  @observable
+  playerDealer: number = 0;
 
   constructor() {
     makeAutoObservable(this)
@@ -41,7 +45,13 @@ export class GameStateStore {
           this.currentRound++;
         break;
     }
-    console.log(`game state is now: ${this.gameState} - turn : ${this.currentRound}`);
+    this.currentCard = this.currentRound > this.maxCards ? this.maxCards - (this.currentRound - this.maxCards) : this.currentRound;
+    this.playerDealer = this.currentRound;
+
+    while(this.playerDealer > this.playerCount)
+      this.playerDealer -= this.playerCount; 
+
+    console.log(`game state is now: ${this.gameState} - turn : ${this.currentRound} - dealer : ${this.playerDealer}` );
   };
 
  
