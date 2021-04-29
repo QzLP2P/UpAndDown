@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { PrimaryButton } from "../../../shared/styledComponents/button";
 import {
   StyledCenterContainerColumn,
+  StyledColumnMargin,
   StyledContainerColumn,
   StyledContainerRow,
 } from "../../../shared/styledComponents/container";
@@ -14,8 +15,12 @@ export const StyledRow = styled(StyledContainerRow)`
   min-width: 100%;
 `;
 
+export const RoundContainer = styled(StyledColumnMargin)`
+overflow-x: auto;
+`;
+
 export const StyledColumn = styled(StyledContainerColumn)`
-  max-width: 30%;
+  max-width: 50%;
 `;
 
 export const StyledInput = styled(NumberTextField)`

@@ -26,9 +26,19 @@ export const StyledCenterContainerColumn = styled(StyledContainerColumn)`
 `;
 
 const marginCss = css`
-  margin-left: 30px;
-  margin-right: 30px;
-  width: calc(100% - 60px);
+  margin-left: 10px;
+  margin-right: 10px;
+  width: calc(100% - 20px);
+  @media (${(p) => p.theme.responsive.tablet}) {
+    margin-left: 30px;
+    margin-right: 30px;
+    width: calc(100% - 60px);
+  }
+  @media (${(p) => p.theme.responsive.desktop}) {
+    margin-left: 60px;
+    margin-right: 60px;
+    width: calc(100% - 120px);
+  }
 `;
 
 export const StyledColumnMargin = styled(StyledCenterContainerColumn)`

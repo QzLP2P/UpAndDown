@@ -30,3 +30,15 @@ export const H6 = styled(Typography).attrs({
   variant: "h6",
   color: "textSecondary",
 })``;
+
+export const H7 = styled(Typography).attrs({
+  variant: "subtitle1",
+  color: "textSecondary",
+})``;
+
+export const H8 = styled(Typography).attrs({
+  variant: "subtitle2",
+  color: "textSecondary",
+})``;
+
+

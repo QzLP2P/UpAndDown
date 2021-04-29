@@ -1,7 +1,7 @@
 {
   "title": "Voici le résultat de la partie",
   "player": {
-    "title": "{{name}}: {{score}} - meilleur tour {{bestScore}}",
+    "title": "{{score}} - meilleur tour {{bestScore}}",
     "max": "Score maximun: {{score}}",
     "average": "Tours réussi: {{success}} / {{total}}",
     "sentences": {

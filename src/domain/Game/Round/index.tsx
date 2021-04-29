@@ -1,7 +1,6 @@
 import { observer } from "mobx-react";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { StyledColumnMargin } from "../../../shared/styledComponents/container";
 import { Split } from "../../../shared/styledComponents/split";
 import { H5, H6 } from "../../../shared/styledComponents/text";
 import { useStore } from "../../../store";
@@ -13,6 +12,7 @@ import {
   StyledInput,
   StyledColumn,
   ImgStyled,
+  RoundContainer
 } from "./style";
 
 const Round: React.FC<{}> = () => {
@@ -25,7 +25,7 @@ const Round: React.FC<{}> = () => {
   const currentRoundArray = currentRound - 1;
   return (
     <Container>
-      <StyledColumnMargin data-cy="roundContainer">
+      <RoundContainer data-cy="roundContainer">
         <H5>
           {t(`title.${roundState}`, { roundCount: currentRound, currentCard })}
         </H5>
@@ -35,7 +35,7 @@ const Round: React.FC<{}> = () => {
 
         {players.map((p) => (
           <StyledRow key={p.id} data-cy={`playerMapContainer-${p.id}`}>
-            <StyledColumn>
+            <StyledColumn data-cy={`playerMapContainerName-${p.id}`}>
               <StyledRow>
                 <H5>{p.name}</H5>
                 {p.name === players[playerDealer - 1].name && <ImgStyled src='img/deck-dealer.png' />}
@@ -43,6 +43,7 @@ const Round: React.FC<{}> = () => {
               <H6>{t(`currentScore`, { score: p.score })}</H6>
             </StyledColumn>
             <StyledInput
+              data-cy={`playerMapContainerValue-${p.id}`}
               inputProps={{ min: 0, max: currentCard }}
               label={t(`state.${roundState}.input`)}
               value={
@@ -66,7 +67,7 @@ const Round: React.FC<{}> = () => {
         <StyledButton onClick={onNext}>
           {t(`state.${roundState}.next`)}
         </StyledButton>
-      </StyledColumnMargin>
+      </RoundContainer>
     </Container>
   );
 };
