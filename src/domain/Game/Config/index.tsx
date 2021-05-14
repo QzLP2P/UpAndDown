@@ -6,12 +6,13 @@ import { useStore } from "../../../store";
 import Init from "./Init";
 import Player from "./Player";
 
-import useData from "./hook";
-import { ConfigProps } from "./type";
-import { Container, StyledButton } from "./style";
-import { StyledColumnMargin } from "../../../shared/styledComponents/container";
 import { Split } from "../../../shared/styledComponents/split";
 import { H5, H6 } from "../../../shared/styledComponents/text";
+
+import useData from "./hook";
+import { ConfigProps } from "./type";
+import { Container, DisclaimerContainer, StyledButton, GameContainer, MarginContainer } from "./style";
+
 
 const Config: React.FC<ConfigProps> = () => {
   const {
@@ -22,29 +23,33 @@ const Config: React.FC<ConfigProps> = () => {
   const { t } = useTranslation("config");
   return (
     <Container data-cy="configContainer">
-      <StyledColumnMargin data-cy="configMarginContainer">
-        <H5> {t("mainTitle")}</H5>
-        <H6> {t(`title.${gameState}`)}</H6>
+      <MarginContainer data-cy="configMarginContainer">
+        <DisclaimerContainer data-cy='disclaimerContainer'>
+          <H5> {t("mainTitle")}</H5>
+          <H6> {t(`title.${gameState}`)}</H6>
 
-        <Split />
+          <Split />
+        </DisclaimerContainer>
 
-        {gameState === "Config" ? (
-          <Init
-            player={player}
-            maxTurn={maxTurn}
-            setPlayer={setPlayer}
-            setMaxTurn={setMaxTurn}
-          />
-        ) : (
-          players.map((p) => <Player key={p.id} p={p} />)
-        )}
+        <GameContainer data-cy='gameContainer' player={player}>
+          {gameState === "Config" ? (
+            <Init
+              player={player}
+              maxTurn={maxTurn}
+              setPlayer={setPlayer}
+              setMaxTurn={setMaxTurn}
+            />
+          ) : (
+            players.map((p) => <Player key={p.id} p={p} />)
+          )}
 
-        <Split />
+          <Split />
 
-        <StyledButton onClick={onNext}>
-          {t(`nextButton.${gameState}`)}
-        </StyledButton>
-      </StyledColumnMargin>
+          <StyledButton onClick={onNext}>
+            {t(`nextButton.${gameState}`)}
+          </StyledButton>
+        </GameContainer>
+      </MarginContainer>
     </Container>
   );
 };

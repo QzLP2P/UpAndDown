@@ -5,12 +5,27 @@
     "max": "Score maximun: {{score}}",
     "average": "Tours réussi: {{success}} / {{total}}",
     "sentences": {
-      "20": "Oula, tu as vraiment mal joué",
-      "40": "Dommage, tu fera mieux la prochaine fois",
-      "50": "Peux mieux faire",
-      "60": "Tu t'améliore continu comme ça",
-      "80": "Presque un sans faute bravo !",
-      "100": "C'est parfait, un sans faute !"
+      "0": "C'est un sans faute, tu as tout raté 😹",
+      "5": "C'est pas folichon, il faut lire les règles",
+      "10": "C'est pas folichon, il faut lire les règles",
+      "15": "C'est pas folichon, il faut lire les règles",
+      "20": "C'est pas folichon, il faut lire les règles",
+      "25": "1/4 de bonne réponse, que dire 👎",
+      "30": "Pas d'inquiètude, la prochaine sera mieux 🦄",
+      "35": "Pas d'inquiètude, la prochaine sera mieux 🦄",
+      "40": "Dommage, tu fera mieux la prochaine fois 🤞",
+      "45": "Dommage, tu fera mieux la prochaine fois 🤞",
+      "50": "Peux mieux faire 👎",
+      "55": "Peux mieux faire 👎",
+      "60": "Tu t'améliore continu comme ça ✌️",
+      "65": "Tu t'améliore continu comme ça ✌️",
+      "70": "La force est avec toi👊",
+      "75": "La force est avec toi👊",
+      "80": "Presque un sans faute bravo ! 🤘",
+      "85": "Presque un sans faute bravo ! 🤘",
+      "90": "Oua, bravo, je suis surpris 👏",
+      "95": "Oua, bravo, je suis surpris 👏",
+      "100": "C'est parfait, un sans faute ! 🤘"
     }
   }
 }

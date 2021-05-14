@@ -7,3 +7,8 @@ export type UseDataProps = {
   setMaxTurn: React.Dispatch<React.SetStateAction<number>>;
   onNext: () => void;
 };
+
+
+export type GameContainerProps = {
+  player: number;
+}

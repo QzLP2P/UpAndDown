@@ -55,7 +55,7 @@ export const StyledRowSpaceBetweenMargin = styled(StyledRowMargin)`
 `;
 
 export const PageWrapper = styled(StyledContainerBasic)`
-  width: 320px;
+  width: 400px;
   margin: 0;
   @media (${(p) => p.theme.responsive.tablet}) {
     width: 640px;

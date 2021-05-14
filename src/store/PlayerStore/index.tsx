@@ -93,21 +93,9 @@ export class PlayerStore {
     const max = p.rounds.length;
     const percent = (done/max)*100;
 
-    let result = 0;
 
-    if(percent === 100)
-      result = 100;
-    else if(percent >= 80 && percent < 100 )
-      result = 80;
-    else if(percent >= 60 && percent < 80 )
-      result = 60;
-    else if(percent >= 50 && percent < 60 )
-      result = 50;
-    else if(percent >= 40 && percent < 50 )
-      result = 40;
-    else
-      result = 20;
-
+    const availables = Array.from({length: 21}, (v, k) => k*5);
+    const result = availables.reduce((prev, curr) => (Math.abs(curr - percent) < Math.abs(prev - percent) ? curr : prev));
     return result;
 
   }
