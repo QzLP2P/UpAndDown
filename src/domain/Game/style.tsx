@@ -5,9 +5,10 @@ import {
 } from "../../shared/styledComponents/container";
 
 export const Container = styled(StyledContainerColumn)`
-  max-height: calc(100% - ${Footer_Height + Header_Height + 40}px);
-  margin-top: 20px;
-  margin-bottom: 20px;
+  // max-height: calc(100% - ${Footer_Height + Header_Height + 225}px);
+  max-height: 70vh;
+  padding-top: 20px;
+  padding-bottom: 20px;
   overflow-y: auto;
   overflow-x: hidden;
 

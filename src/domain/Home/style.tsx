@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { StyledContainerColumn } from "../../shared/styledComponents/container";
+import { SplitNoMargin } from "../../shared/styledComponents/split";
+
 
 export const Container = styled(StyledContainerColumn)`
   overflow-x: hidden;
@@ -7,4 +9,8 @@ export const Container = styled(StyledContainerColumn)`
   box-shadow: 0 0 10rem 0 rgb(0 0 0 / 20%);
   background-color: rgb(0 0 0 / 40%);
   backdrop-filter: blur(100px);
+`;
+
+export const StyledHR = styled(SplitNoMargin)`
+  margin-top: auto;
 `;

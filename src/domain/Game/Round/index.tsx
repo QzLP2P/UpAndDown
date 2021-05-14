@@ -12,7 +12,9 @@ import {
   StyledInput,
   StyledColumn,
   ImgStyled,
-  RoundContainer
+  RoundContainer,
+  DisclaimerContainer,
+  PlayerContainer,
 } from "./style";
 
 const Round: React.FC<{}> = () => {
@@ -26,47 +28,55 @@ const Round: React.FC<{}> = () => {
   return (
     <Container>
       <RoundContainer data-cy="roundContainer">
-        <H5>
-          {t(`title.${roundState}`, { roundCount: currentRound, currentCard })}
-        </H5>
-        <H6> {t(`state.${roundState}.title`)} </H6>
+        <DisclaimerContainer data-cy="disclaimerContainer">
+          <H5>
+            {t(`title.${roundState}`, {
+              roundCount: currentRound,
+              currentCard,
+            })}
+          </H5>
+          <H6> {t(`state.${roundState}.title`)} </H6>
 
-        <Split />
+          <Split />
+        </DisclaimerContainer>
 
-        {players.map((p) => (
-          <StyledRow key={p.id} data-cy={`playerMapContainer-${p.id}`}>
-            <StyledColumn data-cy={`playerMapContainerName-${p.id}`}>
-              <StyledRow>
-                <H5>{p.name}</H5>
-                {p.name === players[playerDealer - 1].name && <ImgStyled src='img/deck-dealer.png' />}
-              </StyledRow>
-              <H6>{t(`currentScore`, { score: p.score })}</H6>
-            </StyledColumn>
-            <StyledInput
-              data-cy={`playerMapContainerValue-${p.id}`}
-              inputProps={{ min: 0, max: currentCard }}
-              label={t(`state.${roundState}.input`)}
-              value={
-                roundState === "bets"
-                  ? getCurrentRound(p, currentRoundArray)?.bet || 0
-                  : getCurrentRound(p, currentRoundArray)?.roundWon || 0
-              }
-              onChange={(e) => {
-                roundState === "bets"
-                  ? setBet(p, currentRoundArray, +e.target.value)
-                  : setRoundResult(p, currentRoundArray, +e.target.value);
-              }}
-            />
+        <PlayerContainer data-cy='playerContainer'>
+          {players.map((p) => (
+            <StyledRow key={p.id} data-cy={`playerMapContainer-${p.id}`}>
+              <StyledColumn data-cy={`playerMapContainerName-${p.id}`}>
+                <StyledRow>
+                  <H5>{p.name}</H5>
+                  {p.name === players[playerDealer - 1].name && (
+                    <ImgStyled src="img/deck-dealer.png" />
+                  )}
+                </StyledRow>
+                <H6>{t(`currentScore`, { score: p.score })}</H6>
+              </StyledColumn>
+              <StyledInput
+                data-cy={`playerMapContainerValue-${p.id}`}
+                inputProps={{ min: 0, max: currentCard }}
+                label={t(`state.${roundState}.input`)}
+                value={
+                  roundState === "bets"
+                    ? getCurrentRound(p, currentRoundArray)?.bet || 0
+                    : getCurrentRound(p, currentRoundArray)?.roundWon || 0
+                }
+                onChange={(e) => {
+                  roundState === "bets"
+                    ? setBet(p, currentRoundArray, +e.target.value)
+                    : setRoundResult(p, currentRoundArray, +e.target.value);
+                }}
+              />
 
-            {/* {roundState !== "bets" && <span>{getCurrentRound(p, currentRound)?.success}</span>} */}
-          </StyledRow>
-        ))}
+              {/* {roundState !== "bets" && <span>{getCurrentRound(p, currentRound)?.success}</span>} */}
+            </StyledRow>
+          ))}
 
-        <Split />
-
-        <StyledButton onClick={onNext}>
-          {t(`state.${roundState}.next`)}
-        </StyledButton>
+          <Split />
+          <StyledButton onClick={onNext}>
+            {t(`state.${roundState}.next`)}
+          </StyledButton>
+        </PlayerContainer>
       </RoundContainer>
     </Container>
   );

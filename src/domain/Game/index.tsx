@@ -13,7 +13,7 @@ const Game: React.FC<{}> = () => {
   } = useStore();
   useData();
   return (
-    <Container>
+    <Container data-cy='gameContainer'>
       {(gameState === "Config" || gameState === "PlayerChoices") && <Config />}
       {gameState === "Round" && <Round />}
       {gameState === "Result" && <Result />}

@@ -8,7 +8,22 @@ import {
 } from "../../../shared/styledComponents/container";
 import { NumberTextField } from "../../../shared/styledComponents/input";
 
-export const Container = styled(StyledCenterContainerColumn)``;
+export const Container = styled(StyledCenterContainerColumn)`
+  overflow: hidden;
+`;
+
+export const DisclaimerContainer = styled(Container)`
+  max-height: 160px;
+  padding-bottom: 20px;
+`;
+
+export const PlayerContainer = styled(StyledCenterContainerColumn)`
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 20px;
+  margin-right: -10px;
+  margin-left: -10px;
+`;
 
 export const StyledRow = styled(StyledContainerRow)`
   max-height: 100px;
@@ -16,7 +31,7 @@ export const StyledRow = styled(StyledContainerRow)`
 `;
 
 export const RoundContainer = styled(StyledColumnMargin)`
-overflow-x: auto;
+  overflow-x: auto;
 `;
 
 export const StyledColumn = styled(StyledContainerColumn)`
@@ -25,6 +40,7 @@ export const StyledColumn = styled(StyledContainerColumn)`
 
 export const StyledInput = styled(NumberTextField)`
   width: 50%;
+
 `;
 
 export const StyledButton = styled(PrimaryButton)``;
