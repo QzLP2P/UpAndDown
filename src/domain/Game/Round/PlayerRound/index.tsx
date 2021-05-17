@@ -12,7 +12,7 @@ const PlayerRound: React.FC<PlayerRoundProps> = ({ p, roundState }) => {
   const { t } = useTranslation("round");
   const { currentRoundArray, StateBets } = useData(p, roundState);
   const {
-    gameStateStore: { currentRound, currentCard, playerDealer },
+    gameStateStore: { currentCard, playerDealer },
     playerStore: { players, setBet, setRoundResult, getCurrentRound },
   } = useStore();
 
