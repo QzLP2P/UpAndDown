@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { Header_Height } from "../../../shared/constants";
+import { Header_Height } from "shared/constants";
 import {
   StyledContainerBasic,
   StyledCenterContainerColumn,
   StyledRowMargin,
-} from "../../../shared/styledComponents/container";
+} from "shared/styledComponents/container";
 
 export const Container = styled(StyledCenterContainerColumn)`
   height: ${() => Header_Height}px;

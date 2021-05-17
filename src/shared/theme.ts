@@ -19,7 +19,7 @@ export const secondaryTextColor = "#d1ddef";
 
 const theme = {
   colors: {
-    primary: bluePanelColor,
+    primary: primaryColor,
     border: borderColor,
     background: {
       main: "#5C6064",

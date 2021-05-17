@@ -1,4 +1,4 @@
-import { PlayerType } from "../../../../store/PlayerStore/type";
+import { PlayerType } from "store/PlayerStore/type";
 export type PlayerProps = {
   p: PlayerType;
 };

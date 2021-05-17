@@ -2,7 +2,7 @@ import { observer } from "mobx-react";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { useStore } from "../../../store";
+import { useStore } from "store";
 
 import { ResultProps } from "./type";
 import {

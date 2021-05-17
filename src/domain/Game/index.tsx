@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import React from "react";
-import { useStore } from "../../store";
+import { useStore } from "store";
 import Config from "./Config";
 import useData from "./hook";
 import Result from "./Result";

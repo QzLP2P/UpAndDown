@@ -1,8 +1,8 @@
 import { useMediaQuery } from "@material-ui/core";
 import React, { useCallback } from "react";
 import { WithTranslation, withTranslation } from "react-i18next";
-import { TABLET_BREAKPOINT } from "../../../shared/constants";
-import { StyledRowSpaceBetweenMargin } from "../../../shared/styledComponents/container";
+import { TABLET_BREAKPOINT } from "shared/constants";
+import { StyledRowSpaceBetweenMargin } from "shared/styledComponents/container";
 import { Container, StyledText, ImgStyled, StyledMobileText } from "./style";
 
 const Footer: React.FC<WithTranslation> = ({ t }) => {
