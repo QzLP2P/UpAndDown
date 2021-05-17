@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { Footer_Height } from "../../../shared/constants";
-import { StyledContainerBasic } from "../../../shared/styledComponents/container";
-import { H5, H8 } from "../../../shared/styledComponents/text";
+import { Footer_Height } from "shared/constants";
+import { StyledContainerBasic } from "shared/styledComponents/container";
+import { H5, H8 } from "shared/styledComponents/text";
 
 export const Container = styled(StyledContainerBasic)`
   position: relative;

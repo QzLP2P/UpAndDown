@@ -2,12 +2,12 @@ import React from "react";
 import { observer } from "mobx-react";
 import { useTranslation } from "react-i18next";
 
-import { useStore } from "../../../store";
+import { useStore } from "store";
 import Init from "./Init";
 import Player from "./Player";
 
-import { Split } from "../../../shared/styledComponents/split";
-import { H5, H6 } from "../../../shared/styledComponents/text";
+import { Split } from "shared/styledComponents/split";
+import { H5, H6 } from "shared/styledComponents/text";
 
 import useData from "./hook";
 import { ConfigProps } from "./type";

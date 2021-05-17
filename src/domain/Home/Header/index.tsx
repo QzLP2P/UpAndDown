@@ -1,8 +1,8 @@
 import { useMediaQuery } from "@material-ui/core";
 import React from "react";
 import { WithTranslation, withTranslation } from "react-i18next";
-import { TABLET_BREAKPOINT } from "../../../shared/constants";
-import { H2, H3 } from "../../../shared/styledComponents/text";
+import { TABLET_BREAKPOINT } from "shared/constants";
+import { H2, H3 } from "shared/styledComponents/text";
 import { Container, LogoContainer, StyledContainer } from "./style";
 
 const Header: React.FC<WithTranslation> = ({ t }) => {

@@ -1,10 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { observer } from "mobx-react";
 
 import { InitProps } from "./type";
-import { StyledNumberInput } from "./style";
-import { useTranslation } from "react-i18next";
 import { StyledRow } from "../style";
+import { StyledNumberInput } from "./style";
 
 const Init: React.FC<InitProps> = ({
   player,

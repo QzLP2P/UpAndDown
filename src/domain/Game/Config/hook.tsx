@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { useStore } from "../../../store";
+import { useStore } from "store";
 import { UseDataProps } from "./type";
 
 const useData = (): UseDataProps => {

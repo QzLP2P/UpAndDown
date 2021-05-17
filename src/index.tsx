@@ -3,14 +3,18 @@ import ReactDOM from "react-dom";
 // import { BrowserRouter } from "react-router-dom";
 import { DefaultTheme, ThemeProvider } from "styled-components";
 import { MuiThemeProvider, StylesProvider } from "@material-ui/core";
-import Home from "./domain/Home";
+
+import Home from "domain/Home";
+import customMuiTheme from "shared/muiTheme";
+import { PageWrapper } from "shared/styledComponents/container";
+import theme from "shared/theme";
+import "shared/utils/i18n";
+
+
 import reportWebVitals from "./reportWebVitals";
-import { PageWrapper } from "./shared/styledComponents/container";
-import theme from "./shared/theme";
-import customMuiTheme from "./shared/muiTheme";
-import { createStore, StoreProvider } from "./store";
 import "./index.css";
-import "./shared/utils/i18n";
+
+import { createStore, StoreProvider } from "store";
 
 const rootStore = createStore();
 

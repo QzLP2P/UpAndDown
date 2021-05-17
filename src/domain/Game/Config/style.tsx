@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { PrimaryButton } from "../../../shared/styledComponents/button";
+import { PrimaryButton } from "shared/styledComponents/button";
 import {
   StyledCenterContainerColumn,
   StyledColumnMargin,
   StyledContainerRow,
-} from "../../../shared/styledComponents/container";
+} from "shared/styledComponents/container";
 import { GameContainerProps } from "./type";
 
 export const Container = styled(StyledCenterContainerColumn)`
